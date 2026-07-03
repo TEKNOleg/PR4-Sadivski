@@ -1,0 +1,23 @@
+class Client:
+    def __init__(self, name, email, balance=0.0):
+        self.name = name
+        self.email = email
+        self.balance = balance
+
+    def display_info(self):
+        print(f"Ім'я: {self.name}")
+        print(f"Email: {self.email}")
+        print(f"Баланс: {self.balance:.2f}")
+
+    def top_up_balance(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Баланс поповнено на {amount:.2f}. Новий баланс: {self.balance:.2f}")
+        else:
+            print("Сума поповнення має бути додатною.")
+    def make_purchase(self, cost):
+        if cost <= self.balance:
+            self.balance -= cost
+            print(f"Покупка успішна! Знято {cost:.2f}. Залишок: {self.balance:.2f}")
+        else:
+            print("Недостатньо коштів для покупки.")
